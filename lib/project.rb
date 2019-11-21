@@ -18,14 +18,19 @@ class Project
     def backers
         ProjectBacker.all.select {|project| project.project == self}.map {|project| project.backer}
     end
-    
+
     # ALTERNATIVE METHOD #1
+    # def backers
+    # ProjectBacker.all.select do |bp| bp.project == self
+    # end.map {|project| project.backer}
+    
+    # ALTERNATIVE METHOD #2
     # def backers
     #     project_backers = ProjectBacker.all.select {|project| project.project == self}
     #     project_backers.map {|project| project.backer}
     # end
 
-    # ALTERNATIVE METHOD #2
+    # ALTERNATIVE METHOD #3
     # def backers
     #     project_backers = ProjectBacker.all.select do |project|
     #         project.project == self
