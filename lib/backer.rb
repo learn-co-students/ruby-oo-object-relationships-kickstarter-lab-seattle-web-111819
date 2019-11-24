@@ -1,5 +1,6 @@
+require 'pry'
 class Backer
-    attr_reader :name
+    attr_accessor :name
     @@all = []
     def initialize(name)
         @name = name
@@ -10,16 +11,12 @@ class Backer
     end
 
     def back_project(project)
-        ProjectBacker.new(project, self)  
+        ProjectBacker.new(project, self)
     end
 
     def backed_projects
-        ProjectBacker.all.select do|bp| 
-            bp.backer == self
-            end.map{|proj| proj.project}
-
+        ProjectBacker.all.select {|pledges| pledges.backer == self}.map{|pledge| pledge.project}
+        
     end
-
-
+    # binding.pry
 end
-

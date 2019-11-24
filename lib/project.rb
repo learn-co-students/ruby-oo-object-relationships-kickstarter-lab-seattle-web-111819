@@ -1,12 +1,14 @@
+require 'pry'
 class Project
-    attr_reader :title
+    attr_accessor :title
     @@all = []
     def initialize(title)
         @title = title
         @@all << self
+        # binding.pry
     end
-    
-    def self.all
+
+    def self.all 
         @@all
     end
 
@@ -15,9 +17,7 @@ class Project
     end
 
     def backers
-        ProjectBacker.all.select do |bp| 
-            bp.project == self
-            end.map{|proj| proj.backer}
-
+        ProjectBacker.all.select {|pledges| pledges.project == self}.map {|pledge| pledge.backer}
     end
+
 end

@@ -1,14 +1,11 @@
 require_relative 'backer'
 require_relative 'project'
-require_relative 'project_back'
+require_relative 'project_backer'
+require 'pry'
+b1 = Backer.new("Nicole")
 
-B1 = Backer.new("Natali")
-B2 = Backer.new("Mengs")
+p1 = Project.new("Popsockets")
 
+back_project(p1)
 
-P1 = Project.new("Cup")
-P2 = Project.new("Apple")
-P3 = Project.new("Laptop")
-P4 = Project.new("Kickstart")
-
-ProjectBacker.new(B1, P1)
+add_backer(b1)
